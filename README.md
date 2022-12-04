@@ -49,3 +49,13 @@ chmod +x ~/lock.sh
 ```
 
 ### picom is used to combat ugly tearing
+
+### copy logind.conf to proper location:
+```
+sudo cp logind.conf /etc/systemd/logind.conf
+```
+
+### copy scripts to proper location:
+```
+cp scripts/* ~/
+```
