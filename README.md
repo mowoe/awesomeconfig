@@ -33,3 +33,14 @@ pacman -S arandr autorandr pavucontrol
 ```
 autorandr --save docked
 ```
+
+### configure xss-lcok
+```
+xss-lock --transfer-sleep-lock -- "/home/mowoe/lock.sh" --nofork
+```
+
+### add custom locking script
+```
+cp lock.sh ~/
+chmod +x ~/lock.sh
+```
