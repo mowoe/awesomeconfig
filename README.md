@@ -23,3 +23,13 @@ git clone https://github.com/horst3180/arc-icon-theme --depth 1 && cd arc-icon-t
 ./autogen.sh --prefix=/usr
 sudo make install
 ```
+
+### install gui tools
+```
+pacman -S arandr autorandr pavucontrol
+```
+
+### configure screen setup (configure using arandr and save with autorandr)
+```
+autorandr --save docked
+```
