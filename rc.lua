@@ -574,5 +574,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 awful.spawn.with_shell('nitrogen --restore')
 awful.spawn.with_shell('xss-lock --transfer-sleep-lock -- "/home/mowoe/lock.sh" --nofork')
-
-              
+awful.spawn.with_shell('picom')

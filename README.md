@@ -4,6 +4,9 @@
 xss-lock
 i3lock
 nitrogen
+picom
+arandr
+pavucontrol
 ```
 ### Used for:
 - xss-lock: ensures screen is always lcoked upon supend/hibernation
@@ -44,3 +47,5 @@ xss-lock --transfer-sleep-lock -- "/home/mowoe/lock.sh" --nofork
 cp lock.sh ~/
 chmod +x ~/lock.sh
 ```
+
+### picom is used to combat ugly tearing
