@@ -338,7 +338,7 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"})
 )
 clientkeys = gears.table.join(
-    awful.key({ modkey, }, "l", function () awful.util.spawn('/home/mowoe/lock.sh')  end,
+    awful.key({ modkey, }, "l", function () awful.util.spawn('systemctl suspend')  end,
               {description = "lock with i3lock and suspend", group = "client"}),
     awful.key({ modkey,           }, "f",
         function (c)
@@ -380,7 +380,12 @@ clientkeys = gears.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
         end ,
-        {description = "(un)maximize horizontally", group = "client"})
+        {description = "(un)maximize horizontally", group = "client"}),
+    -- Volume keys
+    awful.key({ }, "XF86AudioRaiseVolume",    function () awful.util.spawn("/home/mowoe/increase_volume.sh") end, {description="raise volume", group="client"}),
+    awful.key({ }, "XF86AudioLowerVolume",    function () awful.util.spawn("/home/mowoe/decrease_volume.sh") end, {description="lower volume", group="client"}),
+    awful.key({ }, "XF86AudioMute",    function () awful.util.spawn("/home/mowoe/mute.sh") end, {description="lower volume", group="client"})
+    
 )
 
 -- Bind all key numbers to tags.
@@ -572,6 +577,10 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+
+
+
 awful.spawn.with_shell('sleep 1 && nitrogen --restore')
 awful.spawn.with_shell('xss-lock --transfer-sleep-lock -- "/home/mowoe/lock.sh" --nofork')
 awful.spawn.with_shell('picom')
