@@ -8,6 +8,8 @@ local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
+local home_directory = '/home/mowoe'
+
 -- Standard awesome library
 local gears = require("gears")
 local awful = require("awful")
@@ -382,9 +384,11 @@ clientkeys = gears.table.join(
         end ,
         {description = "(un)maximize horizontally", group = "client"}),
     -- Volume keys
-    awful.key({ }, "XF86AudioRaiseVolume",    function () awful.util.spawn("/home/mowoe/increase_volume.sh") end, {description="raise volume", group="client"}),
-    awful.key({ }, "XF86AudioLowerVolume",    function () awful.util.spawn("/home/mowoe/decrease_volume.sh") end, {description="lower volume", group="client"}),
-    awful.key({ }, "XF86AudioMute",    function () awful.util.spawn("/home/mowoe/mute.sh") end, {description="lower volume", group="client"})
+    awful.key({ }, "XF86AudioRaiseVolume",    function () awful.util.spawn(home_directory .. "/awesomescripts/increase_volume.sh") end, {description="raise volume", group="client"}),
+    awful.key({ }, "XF86AudioLowerVolume",    function () awful.util.spawn(home_directory ..  "/awesomescripts/decrease_volume.sh") end, {description="lower volume", group="client"}),
+    awful.key({ }, "XF86AudioMute",    function () awful.util.spawn(home_directory .. "/awesomescripts/mute.sh") end, {description="mute volume", group="client"}),
+    awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn(home_directory .. "/awesomescripts/increase_brightness.sh") end, {description="Increase Brightness", group="client"}),
+    awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn(home_directory .. "/awesomescripts/decrease_brightness.sh") end, {description="Decrease Brightness", group="client"})
     
 )
 
@@ -582,5 +586,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 
 awful.spawn.with_shell('sleep 1 && nitrogen --restore')
-awful.spawn.with_shell('xss-lock --transfer-sleep-lock -- "/home/mowoe/lock.sh" --nofork')
+awful.spawn.with_shell('xss-lock --transfer-sleep-lock -- "'.. home_directory ..'/awesomescripts/lock.sh" --nofork')
 awful.spawn.with_shell('picom')
