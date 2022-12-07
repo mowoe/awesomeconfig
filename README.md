@@ -1,5 +1,12 @@
 # awesome wm configuration
-This repo provides an awesomewm configuration file designed to be used on a system running awesome on top of gnome to ensure all gtk stuff is present. Audio stuff is built for pipewire but should in theory work for everything else as well.
+- This repo provides an awesomewm configuration file designed to be used on a system running awesome on top of gnome to ensure all gtk stuff is present. Audio stuff is built for pipewire but should in theory work for everything else as well.
+
+- Locking is done via i3lock. XSS-lock listens to systemd events to ensure locking is done *before* suspension/hibernation
+- Systemd logind is handling suspending the laptop upon its lid being closed
+- wallpaper is set using nitrogen, which is started along with each session
+- some small bash scripts handle volume control and lcd brightness control via XF86 keys
+- Screen layout can be configured using arandr and then automatically reused with autorandr
+- To combat some really ugly tearing on intel cpus, picom is used as a compositor.
 ## Requirements
 ```
 xss-lock
@@ -7,6 +14,7 @@ i3lock
 nitrogen
 picom
 arandr
+autorandr
 pavucontrol
 ```
 ### Installation:
@@ -17,8 +25,6 @@ make install
 ```
 make uninstall
 ```
-
-
 ### configure screen setup (configure using arandr and save with autorandr)
 ```
 autorandr --save docked
