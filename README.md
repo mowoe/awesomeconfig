@@ -1,5 +1,5 @@
 # awesome wm configuration
-This repo provides an awesome configuration file designed to be used on a system running awesome on top of gnome to ensure all gtk stuff is present. Audio stuff is built for pipewire but should in theory work for everything else as well.
+This repo provides an awesomewm configuration file designed to be used on a system running awesome on top of gnome to ensure all gtk stuff is present. Audio stuff is built for pipewire but should in theory work for everything else as well.
 ## Requirements
 ```
 xss-lock
