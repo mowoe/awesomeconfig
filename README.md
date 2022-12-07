@@ -27,4 +27,9 @@ autorandr --save docked
 ### add udev rule to allow brightness changing (only on intel graphics)
 `/etc/udev/rules.d/backlight.rules`
 ```
-ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"```
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"
+```
+###  add yourself to group video:
+```
+sudo usermod -aG video $(whoami)
+```
