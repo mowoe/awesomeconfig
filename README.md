@@ -8,6 +8,7 @@
 - Screen layout can be configured using arandr and then automatically reused with autorandr
 - To combat some really ugly tearing on intel cpus, picom is used as a compositor.
 - CPU and Battery widgets from [here](https://github.com/streetturtle/awesome-wm-widgets.git)
+- Automatic Locking and Suspending via Super+L shortcut
 ## Requirements
 ```
 xss-lock
