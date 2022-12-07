@@ -7,6 +7,7 @@
 - some small bash scripts handle volume control and lcd brightness control via XF86 keys
 - Screen layout can be configured using arandr and then automatically reused with autorandr
 - To combat some really ugly tearing on intel cpus, picom is used as a compositor.
+- CPU and Battery widgets from [here](https://github.com/streetturtle/awesome-wm-widgets.git)
 ## Requirements
 ```
 xss-lock
