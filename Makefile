@@ -2,6 +2,7 @@ install:
 	$(eval WHOAMI=$(shell whoami))
 	mkdir -p backup
 	cp /etc/systemd/logind.conf ./backup/logind.conf 2>/dev/null
+	cp /home/$(WHOAMI)/.config/picom.conf ./backup/ 2>/dev/null
 	cp /home/$(WHOAMI)/.config/awesome/rc.lua backup/ 2>/dev/null
 	mkdir -p ~/.config/awesome
 	if ! [ -d "/home/$(WHOAMI)/.config/awesome/awesome-wm-widgets/" ]; then git clone https://github.com/streetturtle/awesome-wm-widgets.git ~/.config/awesome/awesome-wm-widgets; fi
@@ -21,4 +22,6 @@ uninstall:
 	rm -rf ~/.config/awesome/awesome-wm-widgets
 	sudo cp ./backup/logind.conf /etc/systemd/logind.conf  2>/dev/null
 	cp ./backup/rc.lua /home/$(WHOAMI)/.config/awesome/rc.lua 2>/dev/null
-	cd arc-icon-theme && sudo make uninstall
+	cp ./backup/picom.conf /home/$(WHOAMI)/.config/picom.conf 2>/dev/null
+	cd arc-icon-theme && sudo make uninstall 2>/dev/null
+	rm -rf arc-icon-theme
