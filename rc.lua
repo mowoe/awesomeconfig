@@ -8,7 +8,7 @@ local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local batteryarc_widget = require("awesome-wm-widgets.batteryarc-widget.batteryarc")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
-local home_directory = '/home/mowoe'
+local home_directory = '/home/changeme'
 
 -- Standard awesome library
 local gears = require("gears")
