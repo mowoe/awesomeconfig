@@ -1,4 +1,5 @@
 # awesome wm configuration
+This repo provides an awesome configuration file designed to be used on a system running awesome on top of gnome to ensure all gtk stuff is present. Audio stuff is built for pipewire but should in theory work for everything else as well.
 ## Requirements
 ```
 xss-lock
@@ -8,54 +9,22 @@ picom
 arandr
 pavucontrol
 ```
-### Used for:
-- xss-lock: ensures screen is always lcoked upon supend/hibernation
-- i3lock provides the actual lockscreen
-- nitrogen: handles wallpaper stuff
-
-### Install widgets:
+### Installation:
 ```
-cd ~/.config/awesome/
-git clone https://github.com/streetturtle/awesome-wm-widgets.git
+make install
+```
+### Uninstallation:
+```
+make uninstall
 ```
 
-### Install icons:
-```
-cd ~/Dokumente
-git clone https://github.com/horst3180/arc-icon-theme --depth 1 && cd arc-icon-theme
-./autogen.sh --prefix=/usr
-sudo make install
-```
-
-### install gui tools
-```
-pacman -S arandr autorandr pavucontrol
-```
 
 ### configure screen setup (configure using arandr and save with autorandr)
 ```
 autorandr --save docked
 ```
 
-### configure xss-lcok
+### add udev rule to allow brightness changing (only on intel graphics)
+`/etc/udev/rules.d/backlight.rules`
 ```
-xss-lock --transfer-sleep-lock -- "/home/mowoe/lock.sh" --nofork
-```
-
-### add custom locking script
-```
-cp lock.sh ~/
-chmod +x ~/lock.sh
-```
-
-### picom is used to combat ugly tearing
-
-### copy logind.conf to proper location:
-```
-sudo cp logind.conf /etc/systemd/logind.conf
-```
-
-### copy scripts to proper location:
-```
-cp scripts/* ~/
-```
+ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video $sys$devpath/brightness", RUN+="/bin/chmod g+w $sys$devpath/brightness"```
