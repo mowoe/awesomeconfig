@@ -388,7 +388,8 @@ clientkeys = gears.table.join(
     awful.key({ }, "XF86AudioLowerVolume",    function () awful.util.spawn(home_directory ..  "/awesomescripts/decrease_volume.sh") end, {description="lower volume", group="client"}),
     awful.key({ }, "XF86AudioMute",    function () awful.util.spawn(home_directory .. "/awesomescripts/mute.sh") end, {description="mute volume", group="client"}),
     awful.key({ }, "XF86MonBrightnessUp", function () awful.util.spawn(home_directory .. "/awesomescripts/increase_brightness.sh") end, {description="Increase Brightness", group="client"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn(home_directory .. "/awesomescripts/decrease_brightness.sh") end, {description="Decrease Brightness", group="client"})
+    awful.key({ }, "XF86MonBrightnessDown", function () awful.util.spawn(home_directory .. "/awesomescripts/decrease_brightness.sh") end, {description="Decrease Brightness", group="client"}),
+    awful.key({ }, "Print", function () awful.util.spawn("gnome-screenshot -a") end, {description="Create a screenshot", group="client"})
     
 )
 
