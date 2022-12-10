@@ -11,7 +11,7 @@ install:
 	cp scripts/* ~/awesomescripts/
 	sh adjust_dir.sh
 	cp build/adjusted.lua ~/.config/awesome/rc.lua
-	git clone https://github.com/horst3180/arc-icon-theme --depth 1 && cd arc-icon-theme && ./autogen.sh --prefix=/usr && sudo make install
+	if ! [ -d "arc-icon-theme" ]; then git clone https://github.com/horst3180/arc-icon-theme --depth 1 && cd arc-icon-theme && ./autogen.sh --prefix=/usr && sudo make install; fi
 	sudo cp logind.conf /etc/systemd/logind.conf
 	awesome -k
 	
