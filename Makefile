@@ -1,10 +1,12 @@
 install:
 	$(eval WHOAMI=$(shell whoami))
 	mkdir -p backup
+	sudo touch /etc/systemd/logind.conf
+	touch /home/$(WHOAMI)/.config/picom.conf
+	touch /home/$(WHOAMI)/.config/awesome/rc.lua
 	cp /etc/systemd/logind.conf ./backup/logind.conf 2>/dev/null
 	cp /home/$(WHOAMI)/.config/picom.conf ./backup/ 2>/dev/null
 	cp /home/$(WHOAMI)/.config/awesome/rc.lua backup/ 2>/dev/null
-	mkdir -p /home/$(WHOAMI)/.config/awesome
 	mkdir -p /home/$(WHOAMI)/.config/awesome
 	mkdir -p /home/$(WHOAMI)/.config/autorandr/
 	if ! [ -d "/home/$(WHOAMI)/.config/awesome/awesome-wm-widgets/" ]; then git clone https://github.com/streetturtle/awesome-wm-widgets.git /home/$(WHOAMI)/.config/awesome/awesome-wm-widgets; fi

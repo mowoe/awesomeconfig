@@ -20,6 +20,7 @@ arandr
 autorandr
 pavucontrol
 gnome-screenshot
+acpi-tools (community/acpi in arch)
 ```
 ### Installation:
 ```
