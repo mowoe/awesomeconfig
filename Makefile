@@ -5,6 +5,7 @@ install:
 	cp /home/$(WHOAMI)/.config/picom.conf ./backup/ 2>/dev/null
 	cp /home/$(WHOAMI)/.config/awesome/rc.lua backup/ 2>/dev/null
 	mkdir -p /home/$(WHOAMI)/.config/awesome
+	mkdir -p /home/$(WHOAMI)/.config/awesome
 	mkdir -p /home/$(WHOAMI)/.config/autorandr/
 	if ! [ -d "/home/$(WHOAMI)/.config/awesome/awesome-wm-widgets/" ]; then git clone https://github.com/streetturtle/awesome-wm-widgets.git /home/$(WHOAMI)/.config/awesome/awesome-wm-widgets; fi
 	chmod +x scripts/*
